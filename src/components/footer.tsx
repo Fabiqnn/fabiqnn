@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { DarkThemeContext } from "./ThemeProvider";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     const theme = useContext(DarkThemeContext)
@@ -10,13 +11,13 @@ export default function Footer() {
         throw new Error("Theme context is undefined")
     }
 
-    const [dark, setDark] = theme
+    const [dark] = theme
     return(
         <footer className={`border-t ${dark ? "border-[#ffffff33]": "border-[#dfdfdf]"}`}>
             <div className="flex flex-col place-items-center p-10 mx-auto md:max-w-[1400px] md:justify-between md:flex-row ">
                 <div className="flex items-center space-x-2 group mb-3 md:mb-0">
                     <div className="size-[24px]">
-                        <img src="/assets/Logo.webp" alt="" className="group-hover:scale-120 transform duration-750"/>
+                        <Image src="/assets/Logo.webp" alt="" className="group-hover:scale-120 transform duration-750"/>
                     </div>
                     <h1 className="text-lg font-semibold">Fabian</h1>
                 </div>

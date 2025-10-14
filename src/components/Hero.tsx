@@ -3,6 +3,7 @@ import ShinyText from "./ShinyText";
 import { DarkThemeContext } from "./ThemeProvider";
 import { useContext } from "react";
 import SplitText from "./SplitText";
+import Image from "next/image";
 
 function Hero() {
     const theme = useContext(DarkThemeContext)
@@ -11,7 +12,7 @@ function Hero() {
         throw new Error("Theme context is undefined")
     }
 
-    const [dark, setDark] = theme
+    const [dark] = theme
     return (
         <>
             <div id="hero" className="grid items-center w-full max-w-[1400px] h-[80vh] mx-auto px-7 mt-20 font-monsterrat py-20 md:py-30 md:grid-cols-2">
@@ -32,7 +33,7 @@ function Hero() {
                     <div className="relative">
                         <div className={`absolute inset-0 ${dark ? "bg-[#ffffffa4]" : "bg-gray-300"} rounded-lg scale-105 z-20`}/>
                         <div className={`absolute inset-0 rounded-lg scale-102 z-25 transition duration-300 ease-in-out ${dark ? "bg-black" : "bg-white"}`}></div>
-                        <img className="relative z-30 rounded-lg max-w-[300px] h-auto" src="/assets/144343780.webp"/>
+                        <Image alt="profile" className="relative z-30 rounded-lg max-w-[300px] h-auto" src="/assets/144343780.webp"/>
                     </div>
                 </div>
             </div>

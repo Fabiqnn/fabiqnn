@@ -4,6 +4,7 @@ import { DarkThemeContext } from "./ThemeProvider";
 import Darkmode from "./Darkmode";
 import clsx from "clsx";
 import Link from "next/link";
+import Image from "next/image";
 
 function Header() {
     const [isScrolled, setScroll] = useState(false)
@@ -13,7 +14,7 @@ function Header() {
         throw new Error("Theme context is undefined")
     }
 
-    const [dark, setDark] = theme
+    const [dark] = theme
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,7 +35,7 @@ function Header() {
             <div className={divClass}>
                 <Link href="/" className="flex items-center space-x-1 group">
                     <div className="size-[18px] md:size-[24px]">
-                        <img src="/assets/Logo.webp" alt="" className="group-hover:scale-120 transform duration-750"/>
+                        <Image src="/assets/Logo.webp" alt="" className="group-hover:scale-120 transform duration-750"/>
                     </div>
                     <h1 className="md:text-lg font-semibold">Fabian</h1>
                 </Link>

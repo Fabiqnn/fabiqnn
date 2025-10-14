@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { DarkThemeContext } from "./ThemeProvider";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CardProps {
     img?: string;
@@ -24,12 +25,12 @@ const Card: React.FC<CardProps> = ({
         throw new Error("Theme context is undefined")
     }   
 
-    const [dark, setDark] = theme
+    const [dark] = theme
     return (
         <div className="">
             <Link href={link} className="block">
                 <div className={`${className} ${dark ? "bg-[#1f1f1f]" : "ring ring-gray-300"}`}>
-                    <img src={img} alt="" className="rounded h-48 w-full object-cover md:h-70 transform duration-750 hover:scale-102"/>
+                    <Image src={img} alt="" className="rounded h-48 w-full object-cover md:h-70 transform duration-750 hover:scale-102"/>
                 </div>
                 <div className="mt-2 px-2 h-auto">
                         <h2 className={`text-2xl font-semibold font-montserrat ${dark ? "text-[#dfdfdf]" : ""}`}>{title}</h2>
